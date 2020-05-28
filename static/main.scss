@@ -1,0 +1,144 @@
+@import "normalize";
+@import "variables";
+
+body {
+    font-family: $font-family;
+    height: 100%;
+    font-size: 18px;
+    background-color: rgb(243, 243, 243);
+
+}
+
+p {
+    margin-top: 0px;
+    line-height: 1.5;
+}
+
+a {
+    color: rgb(85, 176, 255);
+    text-decoration: none;
+}
+
+a:hover 
+{
+     color:rgb(58, 53, 53); 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+h3 {
+    margin-top: 2px;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+select {
+    appearance: none;
+    border: 1px solid grey;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: $select-size;
+    border-radius: radius;
+    color: grey;
+    font-family: $font-family;
+    font-weight: $detail-font-weight;
+    border-radius: $border-radius;
+    border-color: black;
+}
+
+
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.Form {
+    height: 100%;
+    position: relative;
+    max-width: $max-width;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+
+
+    input {
+        width: 100%;
+        padding: $padding;
+    }
+
+    &-introduction {
+         overflow-x: hidden;
+    }
+
+    &-title {
+         text-align: center;
+         margin-bottom: $margin-between-div;
+    }
+    
+    &-group {
+
+        display: flex;
+        width: 100%;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        text-align: left;
+        float: left;
+        
+        &-Number {
+            border-radius: $border-radius;
+        }
+
+        &-name{
+            // display: inline-block;
+            display: flex;
+            align-items: center;
+            width: 225px;
+            text-align: left;
+            margin-right: 5px;
+        }
+        
+        &-predict-button {
+            align-items: center;
+            margin-top: $margin-between-div;
+            padding-right: 20px;
+            padding-left: 20px;
+            color: black;
+            border-radius: $border-radius;
+            font-weight: bold;
+            height: $select-size;
+        }
+
+    }
+    &-selectbox {
+        text-align: center;
+        text-align-last: center;
+        margin-bottom: $margin-between-div
+    }
+
+}
+
+.result-flex {
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: $detail-font-weight;
+    &-index {
+        width: 180px;
+        text-align: left;
+        margin-right: 10px;
+    }
+
+    &-key p {
+        font-style: italic;
+        color: grey;
+    }
+}
