@@ -1,4 +1,4 @@
-gunicorn==19.0.0
+gunicorn==19.5.0
 Keras==2.3.1
 Flask==1.1.2
 tensorflow==2.0.1
