@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AirBnb Prediction</title>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+            rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='main.css') }} ">
+    <!--    <link rel="stylesheet" href="/static/main.css">-->
+</head>
+
+<body>
+<div class="container">
+    <div class="Form">
+
+        <h1 class="Form-title">Price Prediction for Airbnb rents in New York City</h1>
+        <p class="Form-introduction">The main goal is price prediction for Airbnb rents in New York City after
+            determining which features have an effect on price.
+            In this notebook, we worked on existing dataset and external datasets to see whether the price has coherent
+            relation with our features.</p>
+        <p class="Form-introduction">
+            For more detail, visit <a href="#">Kaggle</a> notebook and <a
+                href="https://github.com/buraksekili/airbnb-price-prediction/"> GitHub </a>repository of this project.
+        </p>
+        <hr>
+
+        <form action="/result" method="post">
+            <div class="Form-selectbox">
+                <select class="Form-input-select"
+                        name="neighbourhood_group"
+                        id="neighbourhood_group">
+                    <option value="Manhattan" name="manhattan">Manhattan</option>
+                    <option value="Brooklyn" name="brooklyn">Brooklyn</option>
+                    <option value="Queens" name="queens">Queens</option>
+                    <option value="Staten Island" name="staten_island">Staten
+                        Island
+                    </option>
+                    <option value="Bronx" name="bronx">Bronx</option>
+                </select>
+                <select class="Form-input-select" name="room_type"
+                        id="room_type">
+                    <option value="Shared Room" name="Shared Room">Shared
+                        Room
+                    </option>
+                    <option value="Private Room" name="Private Room">Private
+                        Room
+                    </option>
+                    <option value="Entire home/apt" name="Entire
+                                home/apt">Entire
+                        Home/Apt.
+                    </option>
+                </select>
+            </div>
+
+            <div class="Form-group">
+                <label for="accommodates" class="Form-group-name">Accommodates</label>
+                <input type="number" class="Form-group-Number"
+                       placeholder="No. of Accommodates"
+                       name="accommodates" id="accommodates" min="0" required>
+            </div>
+
+            <div class="Form-group">
+                <label for="bathrooms" class="Form-group-name">Num. Of
+                    Bathrooms:</label>
+                <input type="number" class="Form-group-Number"
+                       placeholder="No. of Bathrooms" name="bathrooms"
+                       id="bathrooms" min="0" required>
+            </div>
+
+            <div class="Form-group">
+                <label for="bedrooms" class="Form-group-name">Num. Of
+                    Bedrooms:</label>
+                <input type="number" class="Form-group-Number"
+                       placeholder="No. of Bedrooms" name="bedrooms"
+                       id="bedrooms" min="0" required>
+            </div>
+
+            <div class="Form-group">
+                <label for="beds" class="Form-group-name">Num. Of Beds:</label>
+                <input type="number" class="Form-group-Number"
+                       placeholder="No. of Beds" name="beds" id="beds"
+                       min="0" required>
+            </div>
+            <input type="submit" value="Predict" name="predict"
+                   class="Form-group-predict-button">
+        </form>
+
+        <h2> Result: {{ result_price }}$ per day. </h2>
+        <h3>Details</h3>
+
+        {% if result_price %}
+        <div>
+            <div class="result-flex">
+                <div class="result-flex-index">
+                    <p>Neighbourhood Group: </p>
+                </div>
+                <div class="result-flex-key">
+                    <p>{{ neighbourhood_group_name }}</p>
+                </div>
+            </div>
+
+            <div class="result-flex">
+                <div class="result-flex-index">
+                    <p>Room Type: </p>
+                </div>
+                <div class="result-flex-key">
+                    <p>{{ room_type }}</p>
+                </div>
+            </div>
+
+            <div class="result-flex">
+                <div class="result-flex-index">
+                    <p>Accommodates: </p>
+                </div>
+                <div class="result-flex-key">
+                    <p>{{ accommodates }}</p>
+                </div>
+            </div>
+
+            <div class="result-flex">
+                <div class="result-flex-index">
+                    <p>Number Of Bathrooms: </p>
+                </div>
+                <div class="result-flex-key">
+                    <p>{{ bathrooms }}</p>
+                </div>
+            </div>
+
+            <div class="result-flex">
+                <div class="result-flex-index">
+                    <p>Number Of Bedrooms: </p>
+                </div>
+                <div class="result-flex-key">
+                    <p>{{ bedrooms }}</p>
+                </div>
+            </div>
+            <div class="result-flex">
+                <div class="result-flex-index">
+                    <p>Number Of Beds: </p>
+                </div>
+                <div class="result-flex-key">
+                    <p>{{ beds }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+
+</body>
+
+</html>
