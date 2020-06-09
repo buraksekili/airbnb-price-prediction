@@ -6,7 +6,7 @@ Price prediciton web-app for Airbnb in New York City.
 
 The project was started as Google Colab notebook. Then, the project is deployed on the web. The main goal is price prediction for Airbnb rents in New York City after determining which features have an effect on price. 
 
-### Kaggle:
+### Kaggle link for explanation of data and model:
 https://www.kaggle.com/ocakhsn/airbnb-price-prediction-multiple-datasets/notebook
 
 ### Data:
